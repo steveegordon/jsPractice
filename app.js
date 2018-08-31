@@ -80,3 +80,16 @@ let isEven = num => {
   };
   return findEven(num);
 };
+
+// Count Character
+let countChar = (string, character) => {
+  let counter = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] == character) {
+      counter++;
+    };
+  };
+  return counter;
+};
+
+let countBs = text => countChar(text, "B");
