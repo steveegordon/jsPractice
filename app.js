@@ -61,3 +61,22 @@ let min = (num1, num2) => {
     }
   else return num2;
 };
+
+// Is Even Recursive
+let isEven = num => {
+  if (num < 0) {
+    num = num * -1;
+  };
+  let findEven = number => {
+    if (number == 0) {
+      return true;
+    }
+    else if (number == 1) {
+      return false;
+    }
+    else {
+      return findEven(number - 2);
+    };
+  };
+  return findEven(num);
+};
