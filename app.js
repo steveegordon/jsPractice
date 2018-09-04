@@ -95,12 +95,76 @@ let countChar = (string, character) => {
 let countBs = text => countChar(text, "B");
 
 // Range
-let range = (start, end) => {
+let range = (start, end, step = 1) => {
   let array = [];
-  let i = start;
-  while (i <= end) {
-    array.push(i);
-    i++;
+  if (start < end) {
+    while (start <= end) {
+      array.push(start);
+      start+=step;
+    }
+  }
+  else {
+    if (step > 0) {
+      step = step - (step*2);
+    }
+    while (end <= start) {
+      array.push(start);
+      start+=step;
+    }
   }
   return array;
 };
+// sum
+let sum = array => {
+  var total = 0;
+  for (let element of array) {
+    total +=element;
+  }
+  return total;
+};
+
+// reverseArray
+let reverseArray = array => {
+  let newArray = [];
+  for (let element of array) {
+    newArray.unshift(element);
+  }
+  return newArray;
+};
+
+// reverseInPlace
+let reverseArrayInPlace = array => {
+  let counter = Math.floor(array.length/2), front;
+  for (let i = 0; i < counter; i++ ) {
+    front = array[i];
+    array[i] = array[array.length - i - 1];
+    array[array.length - i - 1] = front;
+  };
+  return array;
+};
+
+// arrayToList
+let arrayToList = array => {
+  let object = {};
+  for (let i = 0; i < array.length; i++) {
+    let list = {};
+    list.value = array[array.length - i - 1];
+    if (i == 0) {
+    list.rest = null;
+    }
+    else {
+      list.rest = object;
+    }
+    object = list;
+  }
+  return object;
+}
+
+// listToArray
+let listToArray = list => {
+  let array = [];
+  for (let node = list; node; node = node.rest) {
+    array.push(node.value);
+  }
+  return array;
+}
