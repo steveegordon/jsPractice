@@ -93,3 +93,14 @@ let countChar = (string, character) => {
 };
 
 let countBs = text => countChar(text, "B");
+
+// Range
+let range = (start, end) => {
+  let array = [];
+  let i = start;
+  while (i <= end) {
+    array.push(i);
+    i++;
+  }
+  return array;
+};
