@@ -150,7 +150,7 @@ let arrayToList = array => {
     let list = {};
     list.value = array[array.length - i - 1];
     if (i == 0) {
-    list.rest = null;
+      list.rest = null;
     }
     else {
       list.rest = object;
@@ -168,3 +168,33 @@ let listToArray = list => {
   }
   return array;
 }
+
+//  nth
+let nth = (n, list) => {
+  let counter = 0;
+  let value;
+  for (let node = list; counter <= n ; node = node.rest) {
+    value = node.value;
+    counter++;
+  }
+  return value;
+};
+
+let prepend = (val, list) => {
+  let newList = {};
+  newList.value = val;
+  newList.rest = list;
+  return newList;
+};
+
+let nthRecursive = (n, list) => {
+  let dig = (n, list) => {
+    if (n == 0) {
+      return list.value
+    }
+    else {
+      return dig(n - 1, list.rest);
+    }
+  }
+  return dig(n, list);
+};
