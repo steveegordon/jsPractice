@@ -198,3 +198,40 @@ let nthRecursive = (n, list) => {
   }
   return dig(n, list);
 };
+
+// DeepEqual
+let deepEqual = (obj1, obj2) => {
+  if (obj1 == null && obj2 == null) {
+    return true;
+  }
+  else if (typeof(obj1) == typeof(obj2) && typeof(obj1) == "object") {
+    if (obj1.length == obj2.length && obj1.length == undefined) {
+      if (Object.keys(obj1).length == Object.keys(obj2).length) {
+        let keyArray = Object.keys(obj1);
+        for (let key of keyArray) {
+          if (obj2[key] != obj1[key]) {
+            return false
+          }
+        }
+      }
+      else {
+        return false;
+      }
+    }
+    else if (obj1.length == obj2.length) {
+      for (let [index, item] of obj1.entries()) {
+        if (item !== obj2[index]) {
+          return false
+        }
+      }
+    }
+    else {
+    }
+  }
+  else {
+    if (obj1 !== obj2) {
+    return false;
+    }
+  }
+  return true;
+};
