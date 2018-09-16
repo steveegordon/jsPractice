@@ -249,4 +249,17 @@ let loop = (n, func1, func2, func3) => {
 };
 
 loop(3, n => n > 0, n => n - 1, console.log);
-// 
+
+// Every
+let every = (array, test) => {
+  for (element of array) {
+    if (test(array) == false) {
+      return false;
+    }
+  }
+  return true;
+};
+
+let everyAlt = (array, test) => {
+  return !array.some(element => !test(element));
+}
