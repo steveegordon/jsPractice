@@ -235,3 +235,18 @@ let deepEqual = (obj1, obj2) => {
   }
   return true;
 };
+
+// Flatten arrays
+let arrays = [[1,2,3],[4,5],[6]];
+arrays = arrays.reduce((a, b) => a.concat(b));
+
+// High-order loop function
+let loop = (n, func1, func2, func3) => {
+  while (func1(n) == true) {
+      func3(n);
+      n = func2(n);
+    }
+};
+
+loop(3, n => n > 0, n => n - 1, console.log);
+// 
