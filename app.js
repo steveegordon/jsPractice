@@ -263,3 +263,48 @@ let every = (array, test) => {
 let everyAlt = (array, test) => {
   return !array.some(element => !test(element));
 }
+
+// Dominant direction
+let dominantDirection = text => {
+  let results = [], answer = [];
+  for (let char of text) {
+    results.push(characterScript(char.codePointAt(0)));
+  }
+  results = countBy(results.filter(n => n != null), n => n.direction)
+  return results.reduce((a, b) => a.count >= b.count ? a : b, 0).name
+};
+
+class Matrix {
+  constructor(height, width, element = (x, y) => undefined) {
+    this.height;
+    this.width;
+    this.content = [];
+
+    for (let y = 0; y < this.height; y++) {
+      for (let x = 0; x < this.width; x++) {
+        this.content[]
+      }
+    }
+  }
+}
+class MatrixIterator {
+  constructor(matrix) {
+    this.x = 0;
+    this.y = 0;
+    this.matrix = matrix;
+  }
+  next() {
+    if (y == matrix.height) return {done: true};
+
+    let value = {x: this.x,
+                 y: this.y,
+                 value: this.matrix.get(this.x, this.y)
+                }
+    this.x++;
+    if (this.x == this.matrix.width) {
+      this.x = 0;
+      this.y++;
+    }
+    return {value, done: false};
+  }
+}
