@@ -274,19 +274,28 @@ let dominantDirection = text => {
   return results.reduce((a, b) => a.count >= b.count ? a : b, 0).name
 };
 
+
+// Create Matrix and iterator interface
 class Matrix {
-  constructor(height, width, element = (x, y) => undefined) {
-    this.height;
-    this.width;
+  constructor(width, height, element = (x, y) => undefined) {
+    this.height = height;
+    this.width = width;
     this.content = [];
 
-    for (let y = 0; y < this.height; y++) {
-      for (let x = 0; x < this.width; x++) {
-        this.content[]
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        this.content[y * width + x] = element(x, y);
       }
     }
   }
-}
+  get(x,y) {
+    return this.content[y * this.width + x];
+  }
+  set(x,y, value) {
+    this.content[y * this.width + x] = value;
+  }
+};
+
 class MatrixIterator {
   constructor(matrix) {
     this.x = 0;
@@ -294,7 +303,7 @@ class MatrixIterator {
     this.matrix = matrix;
   }
   next() {
-    if (y == matrix.height) return {done: true};
+    if (this.y == this.matrix.height) return {done: true};
 
     let value = {x: this.x,
                  y: this.y,
@@ -307,4 +316,17 @@ class MatrixIterator {
     }
     return {value, done: false};
   }
-}
+};
+
+var test = new Matrix(4, 4, (x, y) => {return (x * y) == 0 ? `value is ${x + y}` : `value is ${x * y}`});
+
+Matrix.prototype[Symbol.iterator] = function() {
+  return new MatrixIterator(this);
+};
+
+for (let {x, y, value} of test) {
+  console.log(x, y, value);
+};
+
+
+
