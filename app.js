@@ -327,6 +327,24 @@ Matrix.prototype[Symbol.iterator] = function() {
 for (let {x, y, value} of test) {
   console.log(x, y, value);
 };
-
-
+// Vector Class
+class Vec {
+  constructor(x, y){
+    this.x = x;
+    this.y = y;
+    this.plus = function(vector){
+      return new Vec(this.x + vector.x, this.y + vector.y);
+    };
+    this.minus = function(vector){
+      return new Vec(this.x - vector.x, this.y - vector.y);
+    };
+  }
+  get length() {
+    return Math.sqrt((this.x * this.x) + (this.y * this.y));
+  }
+  set(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
 
