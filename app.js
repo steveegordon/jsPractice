@@ -348,3 +348,32 @@ class Vec {
   }
 }
 
+// Group class
+class Group {
+  constructor() {
+    this.content = [];
+    this.add = function(val) {
+      for (let num of this.content) {
+        if (val === num) return new Error(`Value already exists, cancelled`);
+      }
+      this.content.push(val);
+    };
+    this.delete = function(x) {
+      return this.content = this.content[0].filter(n => n != x);
+    }
+    this.has = function(val) {
+      for (let num of this.content[0]) {
+        if (val === num) return true;
+      }
+      return false;
+    }
+  }
+  static from(object) {
+    let result = new Group();
+    for (let objects of object) {
+      result.add(object);
+    }
+    return result;
+  }
+}
+
