@@ -490,3 +490,31 @@ function routeRobot(state, memory) {
   }
   return {direction: memory[0], memory: memory.slice(1)};
 };
+
+function intelligentRobot(state, memory) {
+  return {direction: memory[0], memory: memory.slice(1)};
+};
+
+function intelligentMemory(state) {
+  let route = Infinity;
+    function findRoute(location, parcels, turns = []) {
+      if (parcels.length == 0) {
+        if (turns.length < route) {
+          console.log(`end reached`);
+          route = turns;
+          return route;
+        }
+      }
+      else {
+        for (let move of roadGraph[location]) {
+          turns.push(move);
+          if (turns.filter(t => t == move).length < 2) {
+          return findRoute(move, parcels.filter(p => p.address != location), turns);
+          }
+          else console.log(`turns overloaded`);
+        }
+      }
+    }
+  return findRoute(state.place, state.parcels);
+};
+
