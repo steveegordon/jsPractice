@@ -496,25 +496,35 @@ function intelligentRobot(state, memory) {
 };
 
 function intelligentMemory(state) {
-  let route = Infinity;
+  let route = [];
+  let turns = [];
+  let getRoute = [];
     function findRoute(location, parcels, turns = []) {
       if (parcels.length == 0) {
-        if (turns.length < route) {
-          console.log(`end reached`);
+        if ((route.length == 0) || (turns.length < route.length)) {
           route = turns;
-          return route;
+          console.log(route);
+          turns = [];
+        }
+        else {
+          turns = [];
         }
       }
       else {
-        for (let move of roadGraph[location]) {
-          turns.push(move);
-          if (turns.filter(t => t == move).length < 2) {
-          return findRoute(move, parcels.filter(p => p.address != location), turns);
+        roadGraph[location].filter(function(e){return this.indexOf(e)<0;}, turns).forEach(d => {
+          if (getRoute.length < 1) {
+            findRoute(d, parcels.filter(p => p.place != d), turns.concat(d));
           }
-          else console.log(`turns overloaded`);
-        }
+          else {
+            findRoute(d, parcels.filter(p => p.address != d), turns.concat(d));
+          }
+        });
       }
     }
-  return findRoute(state.place, state.parcels);
+  findRoute(state.place, state.parcels, turns);
+  getRoute = route;
+  route = [];
+  findRoute(getRoute[getRoute.length - 1], state.parcels, turns);
+  return getRoute.concat(route);
 };
 
