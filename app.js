@@ -529,16 +529,23 @@ function intelligentMemory(state) {
 };
 
 class PGroup {
-  constructor(){
-    this.content = [];
-    this.empty = function() {
-      this.content = [];
-    }
-    this.add = function(val) {
-      for (let num of this.content) {
-        
-      }
-    }
+  constructor(content){
+    this.content = content;
   }
-}
+  add(val) {
+    for (let num of this.content) {
+      if (num === val) return new Error(`Value already exists, cancelled`)
+    }
+    return new PGroup(this.content.concat([val]));
+  }
+  delete(val) {
+    if (!this.has(val)) return new Error('Cannot remove what is not there');
+    return new PGroup(this.content.filter(n => n !== val));
+  }
+  has(val) {
+    return this.content.includes(val);
+  }
+};
+
+PGroup.empty = new PGroup([]);
 
