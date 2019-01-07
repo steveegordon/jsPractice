@@ -528,3 +528,17 @@ function intelligentMemory(state) {
   return getRoute.concat(route);
 };
 
+class PGroup {
+  constructor(){
+    this.content = [];
+    this.empty = function() {
+      this.content = [];
+    }
+    this.add = function(val) {
+      for (let num of this.content) {
+        
+      }
+    }
+  }
+}
+
