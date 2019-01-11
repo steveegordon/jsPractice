@@ -528,24 +528,28 @@ function intelligentMemory(state) {
   return getRoute.concat(route);
 };
 
+// Create a persistent group
 class PGroup {
   constructor(content){
     this.content = content;
   }
+  // create new group with added value
   add(val) {
     for (let num of this.content) {
       if (num === val) return new Error(`Value already exists, cancelled`)
     }
     return new PGroup(this.content.concat([val]));
   }
+  // create new group with removed value
   delete(val) {
     if (!this.has(val)) return new Error('Cannot remove what is not there');
     return new PGroup(this.content.filter(n => n !== val));
   }
+  // check group for specific value
   has(val) {
     return this.content.includes(val);
   }
 };
-
+// Create initial persistent group
 PGroup.empty = new PGroup([]);
 
