@@ -495,6 +495,7 @@ function intelligentRobot(state, memory) {
   return {direction: memory[0], memory: memory.slice(1)};
 };
 
+// Improved memory
 function intelligentMemory(state) {
   let route = [];
   let turns = [];
@@ -552,4 +553,6 @@ class PGroup {
 };
 // Create initial persistent group
 PGroup.empty = new PGroup([]);
+
+
 
