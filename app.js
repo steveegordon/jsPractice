@@ -554,5 +554,5 @@ class PGroup {
 // Create initial persistent group
 PGroup.empty = new PGroup([]);
 
-
+// Errors
 
