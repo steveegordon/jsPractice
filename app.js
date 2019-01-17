@@ -556,3 +556,16 @@ PGroup.empty = new PGroup([]);
 
 // Errors
 
+// Error test
+function act() {
+  let answer = prompt("Do you like Pickles?");
+  if (answer.toLowerCase() == "yes") return "Correct";
+  if (answer.toLowerCase() == "no") return "More Correct";
+  throw new Error("Dumb people say: " + answer);
+}
+
+try {
+  act();
+} catch (error) {
+  console.log("Did not work because: " + error);
+};
