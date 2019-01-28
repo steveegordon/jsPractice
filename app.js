@@ -638,3 +638,5 @@ catch (e) {
 console.log(box.locked);
 
 //regex
+
+// /dogg?y?/ means second g and y are optional...dogg or dogy would work
