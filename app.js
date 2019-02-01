@@ -641,3 +641,4 @@ console.log(box.locked);
 
 // /dogg?y?/ means second g and y are optional...dogg or dogy would work
 // Date.now() gives current datetime
+// (dog)+ repeats of dog
