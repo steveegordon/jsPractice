@@ -643,4 +643,4 @@ console.log(box.locked);
 // Date.now() gives current datetime
 // (dog)+ repeats of dog
 // ^excluding
-// 
+// new Date().getTime()
