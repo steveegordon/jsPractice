@@ -644,4 +644,5 @@ console.log(box.locked);
 // (dog)+ repeats of dog
 // ^excluding
 // new Date().getTime()
-// 
+// /(\d{1,2})-(\d{1,2})-(\d{4})/
+// ^ regex for 1 or 2 digit, dash, 1 or 2 digit, dash, 4 digit
