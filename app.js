@@ -636,7 +636,6 @@ catch (e) {
   console.log("Error raised:", e);
 }
 console.log(box.locked);
-
 //regex
 
 // /dogg?y?/ means second g and y are optional...dogg or dogy would work
@@ -650,6 +649,16 @@ console.log(box.locked);
 // 
 // 
 /*
-
-
+Nootropics City - Ohio -  2 months built RoR Api for upcoming mobile App
+DropTrip, Montana  - 4 months, now defunct. built RoR Api, implemented Google Maps API, 
+Social Media APIs for customer results
+Function overloading vs. Polymorphism
+Encapsulation - local or private methods
+Inheritance - subclasses receive higher class attribs
+Constants are immutable
  */
+
+
+ /*
+ prep
+  */
