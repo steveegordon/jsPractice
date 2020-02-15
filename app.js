@@ -646,26 +646,4 @@ console.log(box.locked);
 // /(\d{1,2})-(\d{1,2})-(\d{4})/
 // ^ regex for 1 or 2 digit, dash, 1 or 2 digit, dash, 4 digit
 // ^ matches start of string $ matches end
-// 
-// 
-/*
-Nootropics City - Ohio -  2 months built RoR Api for upcoming mobile App
-DropTrip, Montana  - 4 months, now defunct. built RoR Api, implemented Google Maps API, 
-Social Media APIs for customer results
-Function overloading vs. Polymorphism
-Encapsulation - local or private methods
-Inheritance - subclasses receive higher class attribs
-Constants are immutable
- */
 
-
- /*
- prep and ren replace
-
-
- regex practice
- update 2
- restart
- 
-
-  */
